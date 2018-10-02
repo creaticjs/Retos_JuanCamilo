@@ -83,8 +83,18 @@ var imgNoticias = [
         url:"https://m.media-amazon.com/images/M/MV5BZGIzNWYzN2YtMjcwYS00YjQ3LWI2NjMtOTNiYTUyYjE2MGNkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
     }
 ];
-request(urlApi)
-request.then(json,()=>{
+
+$.ajax({
+    url: urlApi,
+    type: "GET",
+    data:{
+        apikey: "b713b6bf584a6d1e54811b758c708875",
+        ts: "1",
+        hash: "ef687b22b3e25eebf85dafdf6667a14f"
+    },
+    dataType:"Json",
+})
+.done(function(json){
     const data = json.data.results;
     for (let i = 0; i < data.length; i++) {
         let element = data[i];
@@ -118,17 +128,17 @@ request.then(json,()=>{
         contenidoEvent.appendChild(cont3)
     }
 })
-
+.fail(function(errorThrown ){
+    swal("Error",errorThrown, "error");
+})
+.always(function(){
+    $('#gif').hide();
+})
 /* Busqueda */
-
 $('#Enviar').on('click',()=>{
     event.preventDefault();
-    
-    
-})
-function request(url) {
     $.ajax({
-        url: url,
+        url: urlApi,
         type: "GET",
         data:{
             apikey: "b713b6bf584a6d1e54811b758c708875",
@@ -138,17 +148,11 @@ function request(url) {
         dataType:"Json",
     })
     .done((json)=>{
-        resolve(json);
+    const data = json.data.results;
+    var namePeli = $('busqueda').val();
+    var mostrarPeli = Enumerable.From(data)
+        .Where(`$.title == ${namePeli}`).ToArray();
+    
+    
     })
-    .fail(function(errorThrown ){
-        swal("Error",errorThrown, "error");
-    })
-    .always(function(){
-        $('#gif').hide();
-    })
-}
-/*const data = json.data.results;
-        var namePeli = $('busqueda').val();
-        var mostrarPeli = Enumerable.From(data)
-            .Where(`$.title == ${namePeli}`).ToArray();
-        console.log(mostrarPeli);*/
+})
