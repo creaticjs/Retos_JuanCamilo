@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<title>Ahorcado</title>
+</head>
+<body>
+	<center>
+	<div>
+	<h1>Adivina la palabra</h1>
+	<button onclick="iniciar()" class="btn btn-primary">Iniciar</button>
+	<canvas width="300" height="300"></canvas>	
+	<h3>Intentos restantes: <span id="intentos"></span></h3>
+	<p>Escribe tu letra</p>
+	<input type="text" id="letra"/>
+	<button onclick="compararL()">Enviar</button>
+	<p id="palabra"></p>
+	<button onclick="ayuda()" class="btn btn-success">Ayuda</button>
+	</div>
+	</center>
+	<script src="juego.js"></script>
+</body>
+</html>
