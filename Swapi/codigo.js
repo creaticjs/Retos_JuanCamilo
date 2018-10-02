@@ -1,0 +1,1 @@
+const API = "https://swapi.co/api/";

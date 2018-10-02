@@ -1,0 +1,13 @@
+#buscar{
+    font-family: cursive;
+    font-size: large;
+    line-height: normal;
+    border-block-end-color: unset;
+    border-block-end-style: unset;
+}
+.jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    background-color: black !important;
+    color: wheat !important;
+}
