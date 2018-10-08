@@ -1,100 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>Marvel</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="estilos.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js"></script>
-  <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+<header>
+  <div> </div>
+</header>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <img src="https://pm1.narvii.com/6238/6b1efca6b25eaabdeccf9f4417ebdb8bfbbd3676_hq.jpg" id="logo" alt="Logo">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a onclick="mostrarPeliculas()" href="#peliculas">Peliculas</a></li>
+        <li><a onclick="mostrarPersonajes()" href="#personajes">Personajes</a></li>
+      </ul> 
+    </div>
+  </div>
+</nav>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a class="pers" href="#" data-value="1009144" onclick="mifuncion(this)">A.I.M.</a></p>
+      <p><a class="pers" href="#" data-value="1017100" onclick="mifuncion(this)">A-Bomb (HAS)</a></p>
+      <p><a class="pers" href="#" data-value="1009146" onclick="mifuncion(this)">Abomination</a></p>
+      <p><a class="pers" href="#" data-value="1010354" onclick="mifuncion(this)">Adam Warlock</a></p>
+      <p><a class="pers" href="#" data-value="1011031" onclick="mifuncion(this)">Agent X</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+            <section>
+                    <div id="historias">
+                      <h1>Marvel</h1>
+                      <p>La editorial que posteriormente sería conocida como Marvel Comics nació en 1939 con el nombre de Timely Publications de la mano de un joven empresario de 31 años llamado Martin Goodman, que había comenzado su carrera como empresario a los 29 años, con una pequeña editorial de revistas pulp llamada Western Fiction Publishing.3​ Al igual que otros editores de pulps de la época, Goodman decidió ampliar su editorial hacia el floreciente negocio de los cómics en 1939, y para ello contrató los servicios de Funnies Inc., un taller de escritores y dibujantes especializado en crear cómics para editoriales que no tenían el dinero o el tiempo suficiente para crear su propia plantilla (cómic shop).</p>
+                    </div>
+                    <div id="personajes">
 
-<div class="container-fluid bg-2" id="">
-  <!-- Navbar -->
-<nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-        <img src="https://pm1.narvii.com/6238/6b1efca6b25eaabdeccf9f4417ebdb8bfbbd3676_hq.jpg" id="logo" alt="Logo">
+                    </div>
+                  <!-- First Container  CARRUSEL-->
+                  <div class="text-center">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                      
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <img src="Img/ironMan.jpg" alt="Iron Man" style="width:100%;">
+                          </div>                      
+                          <div class="item">
+                            <img src="Img/capitanAmerica.jpg" alt="Capitan America" style="width:100%;">
+                          </div>
+                        </div>
+                        <div>
+                        </div>
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a onclick="mostrarPeliculas()">Peliculas</a></li>
-          <li><a onclick="mostrarPersonajes()">Personajes</a></li>
-          <li><a onclick="mostrarHistorias()">Historias</a></li>
-        </ul>
+      <div class="well">
+        <p>ADS</p>
       </div>
     </div>
-  </nav>
-</div>
-
-<!-- First Container  CARRUSEL-->
-  <div class="text-center">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-          </ol>
-        
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="Img/ironMan.jpg" alt="Los Angeles" style="width:100%; padding: 7%">
-            </div>
-        
-            <div class="item">
-              <img src="Img/ironMan2.jpg" alt="Chicago" style="width:100%; padding: 7%">
-            </div>
-        
-            <div class="item">
-              <img src="Img/capitanAmerica.jpg" alt="New York" style="width:100%; padding: 7%">
-            </div>
-          </div>
-          <div>
-
-          </div>
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
   </div>
-<!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
-  <h3 class="margin titulo" >Films</h3>
 </div>
+
 <section>
-  <form action="" class="search" id="form">
-    <input type="text" name="name" id="busqueda"/>
-    <button id="Enviar" class="btn btn-success">Enviar</button>
-  </form>
+    <div id="pers">
+        
+    </div>
+    <div id="peliculas">
+      <h1>Peliculas</h1>
+      <div class="container">
+        <div class="row"id="contenidoEventos">
+            <center><img id="gif" src="https://vignette.wikia.nocookie.net/polandball/images/0/03/Cargando.gif/revision/latest?cb=20161110194813&path-prefix=es" alt="Funny image"></center>
+        </div>
+      </div>
+    </div>
 </section>
-<div class="container">
-  <div class="row"id="contenidoEventos">
-      <center><img id="gif" src="https://vignette.wikia.nocookie.net/polandball/images/0/03/Cargando.gif/revision/latest?cb=20161110194813&path-prefix=es" alt="Funny image"></center>
-  </div>
-</div>
-
-<!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p id="nombre">Developer JCZ <a href="https://developer.marvel.com">https://developer.marvel.com</a></p> 
+      <p id="nombre">Developer Camilo Zuñiga <a href="https://developer.marvel.com">https://developer.marvel.com</a></p> 
 </footer>
 <script src="codigo.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

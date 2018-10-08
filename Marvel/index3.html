@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Marvel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid bg-2" id="">
+  <!-- Navbar -->
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <img src="https://pm1.narvii.com/6238/6b1efca6b25eaabdeccf9f4417ebdb8bfbbd3676_hq.jpg" id="logo" alt="Logo">
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a onclick="mostrarPeliculas()" href="#peliculas">Peliculas</a></li>
+          <li><a onclick="mostrarPeliculas()" href="#historias">Historias</a></li>
+          <li><a onclick="mostrarHistorias()">Historias</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin titulo" >Films</h3>
+</div>
+<section>
+  <div id="historias">
+    <h1>Hello historias</h1>
+  </div>
+</section>
+<section id="peliculas">
+<div class="container">
+  <h1>Peliculas</h1>
+  <div class="row"id="contenidoEventos">
+      <center><img id="gif" src="https://vignette.wikia.nocookie.net/polandball/images/0/03/Cargando.gif/revision/latest?cb=20161110194813&path-prefix=es" alt="Funny image"></center>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p id="nombre">Developer JCZ <a href="https://developer.marvel.com">https://developer.marvel.com</a></p> 
+</footer>
+<script src="codigo.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

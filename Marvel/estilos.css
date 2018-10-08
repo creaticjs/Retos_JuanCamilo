@@ -1,93 +1,54 @@
-body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
-}
-p {font-size: 16px;}
-.margin {margin-bottom: 45px;}
-.bg-1 { 
-    background-color: #f5f6f7
-}
-.bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
-}
-.bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
-}
-.bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
-}
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
+/* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
     margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-    font-family: fantasy;
-    background-color: transparent;
-}
-.navbar-nav  li a:hover {
-    color:#000 !important;
-}
-.navbar-default .navbar-brand {
-    color: #fff;
-    font-size: 21px;
-}
-.navbar-brand {
-    float: left;
-    height: 50px;
-    padding: 15px 15px;
-    font-size: 47px;
-    line-height: 20px;
-    font-family: fantasy;
-    color: azure;
-}
-.img-circle {
-    border-radius: 0%;
-}
-.h1, h1 {
-    font-size: 36px;
-    color: black;
-}
-p {
-    font-size: 16px;
-    color: black;
-}
-.titulo{
-    font-size: 107px;
-    font-family: fantasy;
-    background-color: crimson;
-}
-.navbar-default .navbar-nav>li>a {
-    color: #fff;
-    font-size: 19px;
-}
-.estilosImg{
-    width: 50%;
-    
-}
-.search {
-    grid-area: search;
+    border-radius: 0;
+  }
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 450px}
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
   }
   
-  .search input {
-    background: #f0f0f0;
-    font-family: "Lato";
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 16px;
-    width: 300px;
-    border: none;
-    box-shadow: 0 0 10px #171616;
-    box-sizing: border-box;
-    color: #000;
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
   }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+  .estilosImg{
+    width: 100%;
+    
+}
+#logo{
+  width: 49px;
+}
+h1{
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+footer {
+  background-color: #0c0c0c;
+  color: white;
+  padding: 15px;
+}
+.pers {
+    font-size: 20px;
+    color: #000;
+    font-family: fantasy;
+    text-decoration-color: #000;
+}

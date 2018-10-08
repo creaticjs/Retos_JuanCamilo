@@ -84,75 +84,108 @@ var imgNoticias = [
     }
 ];
 
-$.ajax({
-    url: urlApi,
-    type: "GET",
-    data:{
+function peticion(url) {
+    return new Promise(function(resolve, reject){
+        var httpX = new XMLHttpRequest();
+        httpX.onload = function(){
+            resolve(JSON.parse(this.responseText));
+        }
+        httpX.onerror = function(){
+            reject(Error('Error 🤮'));
+        }
+        httpX.open('GET',`${url}?apikey=b713b6bf584a6d1e54811b758c708875&ts=1&hash=ef687b22b3e25eebf85dafdf6667a14f`,true);
+        httpX.send()
+    });
+    /*return $.ajax({
+        url: url,
+        type: "GET",
+        data:{
         apikey: "b713b6bf584a6d1e54811b758c708875",
         ts: "1",
         hash: "ef687b22b3e25eebf85dafdf6667a14f"
     },
     dataType:"Json",
-})
-.done(function(json){
-    const data = json.data.results;
-    for (let i = 0; i < data.length; i++) {
-        let element = data[i];
-        var cont = document.createElement('div')
-        cont.setAttribute('class','container-fluid bg-4 text-center')
+    })
+    .done(function(data){
+        return data;
+    })
+    .fail(function(errorThrown){
+        return errorThrown
+    })*/
+}
 
-        var titulo = document.createElement('h1')
-        var nombreTitulo = document.createTextNode(element.title)
-        var cont2 = document.createElement('div');
-        cont2.setAttribute('class','row');
-        
-        var img = document.createElement('img')
+function mostrarPeliculas() {
+    $('#pelis').show(); 
+    peticion(urlApi)
+    .catch(function(error){
+        swal("Error 404","error","error");
+    })
+    .then(function(json){
+        $('#gif').hide();
+        const data = json.data.results;
+        for (let i = 0; i < data.length; i++) {
+            let element = data[i];
+            var cont = document.createElement('div')
+            cont.setAttribute('class','container-fluid bg-4 text-center')
 
-        var urlPeli = Enumerable.From(imgNoticias)
-        .Where(`$.tituloPeli == '${element.title}'`).ToArray();
-        var srcImg =  urlPeli[0].url;
-        img.setAttribute('src',srcImg)
-        img.setAttribute('class','estilosImg')
-        var cont3 = document.createElement('div')
-        cont3.setAttribute('class','col-sm-4')
-        var parrafo = document.createElement('p')
-        var contenidoP = document.createTextNode(element.description)
+            var titulo = document.createElement('h1')
+            var nombreTitulo = document.createTextNode(element.title)
+            var cont2 = document.createElement('div');
+            cont2.setAttribute('class','row');
+            
+            var img = document.createElement('img')
 
-        parrafo.appendChild(contenidoP)
-        titulo.appendChild(nombreTitulo)
-        cont3.appendChild(titulo)
-        cont3.appendChild(img)
-        cont3.appendChild(parrafo)
-        cont2.appendChild(cont3)
-        cont.appendChild(cont2)
-        contenidoEvent.appendChild(cont3)
-    }
+            var urlPeli = Enumerable.From(imgNoticias)
+            .Where(`$.tituloPeli == '${element.title}'`).ToArray();
+            var srcImg =  urlPeli[0].url;
+            img.setAttribute('src',srcImg)
+            img.setAttribute('class','estilosImg')
+            var cont3 = document.createElement('div')
+            cont3.setAttribute('class','col-sm-4')
+            var parrafo = document.createElement('p')
+            var contenidoP = document.createTextNode(element.description)
+
+            parrafo.appendChild(contenidoP)
+            titulo.appendChild(nombreTitulo)
+            cont3.appendChild(titulo)
+            cont3.appendChild(img)
+            cont3.appendChild(parrafo)
+            cont2.appendChild(cont3)
+            cont.appendChild(cont2)
+            contenidoEvent.appendChild(cont3)
+        }    
+        })
+
+}
+mostrarPeliculas();
+$.ajax({
+    url: "http://gateway.marvel.com/v1/public/characters",
+    type: "GET",
+    data:{
+    apikey: "b713b6bf584a6d1e54811b758c708875",
+    ts: "1",
+    hash: "ef687b22b3e25eebf85dafdf6667a14f"
+},
+dataType:"Json",
 })
-.fail(function(errorThrown ){
-    swal("Error",errorThrown, "error");
+.done(function(data){
+    console.log(data);
 })
-.always(function(){
-    $('#gif').hide();
-})
-/* Busqueda */
-$('#Enviar').on('click',()=>{
-    event.preventDefault();
+
+function mifuncion(elemento) {
+    var idPersonaje = $(elemento).data('value');
     $.ajax({
-        url: urlApi,
-        type: "GET",
-        data:{
-            apikey: "b713b6bf584a6d1e54811b758c708875",
-            ts: "1",
-            hash: "ef687b22b3e25eebf85dafdf6667a14f"
-        },
-        dataType:"Json",
+        type: "get",
+        url: `http://gateway.marvel.com/v1/public/characters/${idPersonaje}?apikey=b713b6bf584a6d1e54811b758c708875&ts=1&hash=ef687b22b3e25eebf85dafdf6667a14f`,
+        data: "json",
     })
-    .done((json)=>{
-    const data = json.data.results;
-    var namePeli = $('busqueda').val();
-    var mostrarPeli = Enumerable.From(data)
-        .Where(`$.title == ${namePeli}`).ToArray();
-    
-    
+    .done(function(p){
+        const personaje = p.data.results[0]
+        swal(`Name: ${personaje.name}`,`Descripción: ${personaje.description}`,)
     })
-})
+}
+function mostrarPersonajes() {
+    $('#pelis').hide();
+    peticion('http://gateway.marvel.com//v1/public/characters/1011334?apikey=b713b6bf584a6d1e54811b758c708875&ts=1&hash=ef687b22b3e25eebf85dafdf6667a14f')
+    
+}
